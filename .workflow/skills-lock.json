@@ -161,7 +161,7 @@
   "owned": {
     "candidate": "0.5",
     "skills": ["workflow-clarify-spec", "workflow-plan-tickets", "workflow-implement-tickets"],
-    "source": "frontend-agent-lab/flow-v2/skill-library; exact copied bytes"
+    "source": "frontend-agent-lab/flow-v2/skill-library; locally amended external-source intake"
   },
   "files": {
     ".agents/skills/ask-matt/PHASE-BOUNDARIES.md": "a8aa20158609ef39e2b308b6ba0660c91066838d07a867202e63a7744a88a3ed",
@@ -176,7 +176,7 @@
     ".agents/skills/codebase-design/SKILL.md": "2c20617f87ec8af6a434859f381b2f061a69b530444e74eb39e78bb016a6d1e2",
     ".agents/skills/codebase-design/agents/openai.yaml": "edebc9e4fcfe102114012575eaa9600b9b5fd08c311664f389c36e7bc717740f",
     ".agents/skills/common/records.md": "27dbe4aaf7dccbb068766b1b190e1b7df36d224cf8871a8cf668414127a16fc0",
-    ".agents/skills/common/runtime.md": "4e9eef2651f845d5fd37a47d1efea2de07bcaf2edaf895a9818f4f809e866a0d",
+    ".agents/skills/common/runtime.md": "8630c667aae69581bab322c59eb026341761897d1ca63a6b715aecfc948e665a",
     ".agents/skills/common/scripts/content_hash.py": "7d05db6e15cd54da293430c7ab3c7680895fc88527851f4d7531f31af9473486",
     ".agents/skills/common/version.md": "fdae2eef1014daf41f44cbf116f1a1ee647f86de2693ee02af5f2365ba27a5ac",
     ".agents/skills/diagnosing-bugs/SKILL.md": "77f3cf31bc99b2f49af943222526531fcc9fc41d047626d3640e875e85af3e84",
@@ -262,9 +262,9 @@
     ".agents/skills/wizard/SKILL.md": "bdf31d48211ea559878f95a4f344aeabf8d85897488ba564382bab0b000daac1",
     ".agents/skills/wizard/agents/openai.yaml": "98f44d682d58e262f160dc59a8befc365e0aa65820dd0261864af26aa8e59d83",
     ".agents/skills/wizard/template.sh": "33cbe9dfb1d0e9185b60248a52aabed14bc64785a00cac695e302e739dd6c153",
-    ".agents/skills/workflow-clarify-spec/SKILL.md": "a3997bce81885ce4aff8891392e90d359d86189574aa3ce819deb69b25ea833b",
+    ".agents/skills/workflow-clarify-spec/SKILL.md": "5f182330d5fb08f5c01a76f03b5a34d6db2b1c959300c8bb68bba4b5fa961f72",
     ".agents/skills/workflow-clarify-spec/agents/openai.yaml": "a1499d95abd8447558c535fe5554adcc3c9b988a0a39264a6283d430effe1e94",
-    ".agents/skills/workflow-clarify-spec/references/carriers.md": "2bac5b456fd45b3845972c8116af07318f1c02464cb239eedcee387d66932db4",
+    ".agents/skills/workflow-clarify-spec/references/carriers.md": "e662bcde940e00be3f51a951487ca5eee19cd707d8488169b3d46efd55f16dad",
     ".agents/skills/workflow-implement-tickets/SKILL.md": "0f76743baaef3fac567437e29c19a3bf030b735158717f7ae63600d6b3fb39de",
     ".agents/skills/workflow-implement-tickets/agents/openai.yaml": "a1499d95abd8447558c535fe5554adcc3c9b988a0a39264a6283d430effe1e94",
     ".agents/skills/workflow-implement-tickets/references/recovery.md": "ec844968d2b7b9691d9fb39486633c5a90f85bf4ea3f0085fe56ba5d3d36080e",

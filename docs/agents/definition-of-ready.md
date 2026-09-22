@@ -71,8 +71,8 @@ When a specification is split into implementation tickets:
 
 ## Readiness outcome
 
-- If required information is missing, apply `needs-info` and ask only the questions needed to resolve the gaps.
-- When missing information is supplied during an active skill invocation, follow the same-invocation re-evaluation rule in `docs/agents/triage-labels.md`. Recheck all applicable items above, not only the previously recorded gap. A reply alone is not final approval; apply the approval rule above.
+- If required information is missing, apply `needs-info` and ask only the questions needed to resolve the gaps. A new Issue sourced outside the tracker also remains `needs-info` until the complete spec receives explicit human confirmation, even if the other gaps have been answered.
+- When missing information is supplied during an active skill invocation, follow the source-specific same-invocation re-evaluation rule in `docs/agents/triage-labels.md`. Recheck all applicable items above, not only the previously recorded gap. A reply alone is not final approval; apply the approval rule above.
 - If the work is fully specified but requires human implementation or judgment, apply `ready-for-human`.
 - Apply `ready-for-agent` only when this checklist passes, human approval is recorded, and unattended implementation is appropriate.
 - Use `wontfix` when the evaluated issue will not be actioned.
