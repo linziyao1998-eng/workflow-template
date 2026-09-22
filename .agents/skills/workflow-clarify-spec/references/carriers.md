@@ -12,7 +12,9 @@ Adapted from Matt to-spec. Use these seven headings; only include decisions and 
 6. `## Out of Scope` — explicit exclusions.
 7. `## Further Notes` — versioned source references, remaining questions when incomplete, recorded source provenance.
 
-Create with a preassigned `<!-- workflow-source:<stable-id> -->` marker in the initial body and persist it locally before remote creation. Keep it in future approved snapshots. Resume by exact marker/ID. Before first full approval, the entire body including this marker is the candidate version.
+After the clarification phase has incorporated all information that can be confirmed from the source and human answers, assess minimum intake: a stable problem/title, identifiable source provenance, known facts separated from unknowns, and specific questions for any remaining material gaps. If any part is missing, continue clarification without creating a target Issue. Meeting this minimum does not imply Definition of Ready or full approval.
+
+Preassign a `<!-- workflow-source:<stable-id> -->` marker and persist the source record and the human clarification exchange before remote creation. Only after incorporating all currently confirmable information, if the minimum is met but material gaps remain, create the seven-section body with explicit remaining gaps/questions and read back `needs-info`. When the requirements are complete, show the exact title and full body including the marker for separate human approval before creating an Issue. Publish the approved bytes, read them back, and follow [version rules](../../common/version.md) to bind the final identity, record approval and apply `Spec` + `ready-for-agent`. Keep the marker in all later versions; resume by exact marker/ID.
 
 ## External Issue comments
 
