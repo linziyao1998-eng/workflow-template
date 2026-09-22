@@ -71,7 +71,7 @@ When a specification is split into implementation tickets:
 
 ## Readiness outcome
 
-- If required information is missing, apply `needs-info` and ask only the questions needed to resolve the gaps. Once those gaps are resolved, a workflow-created Issue waits for full approval without a primary triage label; an Issue that already existed in the tracker uses `needs-triage` while evaluation or approval remains.
+- If required information is missing in an Issue that already exists, apply `needs-info`. For an external source without a target Issue, apply `needs-info` only after the minimum intake gate permits creating one; otherwise continue clarification without an Issue. Once gaps are resolved, a workflow-created Issue waits for full approval without a primary triage label. For a complete external source with no Issue yet, obtain full approval before creating it. An Issue that already existed in the tracker uses `needs-triage` while evaluation or approval remains.
 - When missing information is supplied during an active skill invocation, follow the same-invocation re-evaluation rule in `docs/agents/triage-labels.md`. Recheck all applicable items above, not only the previously recorded gap. A reply alone is not final approval; apply the approval rule above.
 - If the work is fully specified but requires human implementation or judgment, apply `ready-for-human`.
 - Apply `ready-for-agent` only when this checklist passes, human approval is recorded, and unattended implementation is appropriate.
