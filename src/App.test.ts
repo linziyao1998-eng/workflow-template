@@ -17,4 +17,22 @@ describe('starter counter', () => {
     expect(reset.attributes('disabled')).toBeDefined()
     wrapper.unmount()
   })
+
+  it('stops increasing at 10 while the increase button stays available', async () => {
+    const wrapper = mount(App)
+    const increment = wrapper.findAll('button').find((button) => button.text() === '增加')
+    if (!increment) throw new Error('Increase button is missing')
+
+    for (let value = 1; value <= 9; value += 1) {
+      await increment.trigger('click')
+      expect(wrapper.get('output').text()).toBe(String(value))
+    }
+    await increment.trigger('click')
+    expect(wrapper.get('output').text()).toBe('10')
+    expect(increment.attributes('disabled')).toBeUndefined()
+    await increment.trigger('click')
+    await increment.trigger('click')
+    expect(wrapper.get('output').text()).toBe('10')
+    wrapper.unmount()
+  })
 })
