@@ -12,7 +12,7 @@ Adapted from Matt to-spec. Use these seven headings; only include decisions and 
 6. `## Out of Scope` — explicit exclusions.
 7. `## Further Notes` — versioned source references, remaining questions when incomplete, recorded source provenance.
 
-Create with a preassigned `<!-- workflow-source:<stable-id> -->` marker in the initial body and persist it locally before remote creation. Record the preceding human clarification round and its answer in that source record. The initial body identifies any unanswered source questions and the pending full-spec confirmation; create and read back the Issue with `needs-info`. Keep the marker in future approved snapshots. Resume by exact marker/ID. Before first full approval, the entire body including this marker is the candidate version.
+Create with a preassigned `<!-- workflow-source:<stable-id> -->` marker in the initial body and persist it locally before remote creation. Record the preceding human clarification round and its answer in that source record. The initial body identifies unanswered source questions and pending full-spec confirmation. Create and read back the Issue with `needs-info` only if material questions remain; otherwise leave it without a primary triage label until full approval. Keep the marker in future approved snapshots. Resume by exact marker/ID. Before first full approval, the entire body including this marker is the candidate version.
 
 ## External Issue comments
 
