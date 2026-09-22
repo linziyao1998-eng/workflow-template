@@ -2,6 +2,70 @@ import { mount } from '@vue/test-utils'
 import { describe, expect, it } from 'vitest'
 import App from './App.vue'
 describe('starter counter', () => {
+  it('undoes the last increase once', async () => {
+    const wrapper = mount(App)
+    const increment = wrapper.findAll('button').find((button) => button.text() === '增加')
+    const undo = wrapper.findAll('button').find((button) => button.text() === '撤销')
+    if (!increment || !undo) throw new Error('Counter controls are missing')
+
+    expect(undo.attributes('disabled')).toBeDefined()
+    await increment.trigger('click')
+    expect(wrapper.get('output').text()).toBe('1')
+    expect(undo.attributes('disabled')).toBeUndefined()
+    await undo.trigger('click')
+    expect(wrapper.get('output').text()).toBe('0')
+    expect(undo.attributes('disabled')).toBeDefined()
+    wrapper.unmount()
+  })
+
+  it('undoes the latest decrease or reset and lets a new change replace the record', async () => {
+    const wrapper = mount(App)
+    const buttons = wrapper.findAll('button')
+    const increment = buttons.find((button) => button.text() === '增加')
+    const decrement = buttons.find((button) => button.text() === '减少')
+    const reset = buttons.find((button) => button.text() === '重置')
+    const undo = buttons.find((button) => button.text() === '撤销')
+    if (!increment || !decrement || !reset || !undo) throw new Error('Counter controls are missing')
+
+    await increment.trigger('click')
+    await increment.trigger('click')
+    await decrement.trigger('click')
+    await undo.trigger('click')
+    expect(wrapper.get('output').text()).toBe('2')
+    expect(undo.attributes('disabled')).toBeDefined()
+
+    await reset.trigger('click')
+    expect(wrapper.get('output').text()).toBe('0')
+    await undo.trigger('click')
+    expect(wrapper.get('output').text()).toBe('2')
+    await decrement.trigger('click')
+    await increment.trigger('click')
+    await undo.trigger('click')
+    expect(wrapper.get('output').text()).toBe('1')
+    expect(undo.attributes('disabled')).toBeDefined()
+    wrapper.unmount()
+  })
+
+  it('keeps the undo record when increasing at the cap changes nothing', async () => {
+    const wrapper = mount(App)
+    const buttons = wrapper.findAll('button')
+    const increment = buttons.find((button) => button.text() === '增加')
+    const decrement = buttons.find((button) => button.text() === '减少')
+    const undo = buttons.find((button) => button.text() === '撤销')
+    if (!increment || !decrement || !undo) throw new Error('Counter controls are missing')
+
+    for (let value = 1; value <= 10; value += 1) await increment.trigger('click')
+    await increment.trigger('click')
+    expect(wrapper.get('output').text()).toBe('10')
+    await undo.trigger('click')
+    expect(wrapper.get('output').text()).toBe('9')
+    await increment.trigger('click')
+    await decrement.trigger('click')
+    await undo.trigger('click')
+    expect(wrapper.get('output').text()).toBe('10')
+    wrapper.unmount()
+  })
+
   it('decreases to zero and disables decrease at the lower bound', async () => {
     const wrapper = mount(App)
     const increment = wrapper.findAll('button').find((button) => button.text() === '增加')
