@@ -28,7 +28,7 @@ test('undo uses native keyboard activation, clears after use and reload', async 
 test('four actions remain in order and wrap inside a 320px viewport', async ({ page }) => {
   await page.setViewportSize({ width: 320, height: 700 })
   await page.goto('/')
-  const actions = page.locator('.actions button')
+  const actions = page.getByRole('button')
   await expect(actions).toHaveText(['增加', '减少', '重置', '撤销'])
   const positions = await actions.evaluateAll((buttons) =>
     buttons.map((button) => ({
