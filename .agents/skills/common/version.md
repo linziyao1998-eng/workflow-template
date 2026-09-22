@@ -1,0 +1,17 @@
+# Spec identity, publication and approval
+
+Identity is `{repo, issue, carrier, comment_id, sha256}`. Carrier is `body` for a workflow-created Issue or `agent-brief` for an external Issue. `comment_id` is null for body; for Brief it is the exact published comment ID. Establish origin through creation/source records, not headings or labels alone.
+
+Hash the full returned Markdown string encoded as UTF-8, without trimming, newline normalization, formatting or metadata injection. Read JSON from gh, decode its body string and hash that string. Shell command substitution and a CLI-added newline are not the body. The helper [scripts/content_hash.py](scripts/content_hash.py) accepts a raw UTF-8 file or a JSON body field. Hash equality proves only content identity, never approval or the currency of linked external materials.
+
+An approval record is a separate comment headed `## Workflow Approval`, containing identity, scope (`full-spec`), human approver, evidence source, actual decision time and recorder. If transcribing the active conversation, say the agent recorded a real conversation decision, preserve its exact scope/evidence, and do not impersonate a GitHub author. A source comment can contain equivalent explicit information; assess its meaning rather than requiring one magic syntax. Unknown author/time/scope is not fabricated. Test-seam approval, acceptance of one answer, silence, and agent confidence are not full approval.
+
+Before publishing an approval record and before applying readiness, reread the carrier and check exact hash and valid, unrevoked approval. After labels, reread the carrier and labels again; if the content changed, remove readiness/Spec and report reassessment required. This is a checked sequence, not a transactional guarantee.
+
+For a new external Brief, show the entire final publishable text, including the AI disclaimer and any stable publication marker, before seeking full approval. Approval initially binds that draft hash to this issue. Publish exactly those bytes once, find/read the comment ID, compare hash, then record the complete identity in a separate approval comment. For a lost create response, locate the preapproved stable marker and exact content; ambiguous matches stop recovery. Do not edit an older authoritative Brief in place to hide a new version.
+
+Reuse valid full approval of the same identity without another approval round. If content changes before tickets are complete, invalidate readiness and reassess; seek full approval of the changed version. After the complete approved ticket set establishes a baseline, stop affected execution and move changed requirements to a linked new Issue. Retain old spec/tickets and their evidence; close only superseded affected Issues with an explicit replacement reason under the authorized change flow. Do not silently bind old tickets to a new hash.
+
+When an earlier comment explicitly approves only a seam or one decision, request a new full-spec decision against the displayed content. A later affirmative response is a new approval event; retain the old comment's original scope and timestamp. Capture the new decision's available actor/time from its actual context, asking only for genuinely unavailable information. Do not ask the human to retroactively relabel the old partial comment as full approval.
+
+Successful handoff returns identity, authoritative carrier URL, approval source/record and readback evidence. Failed publication/labeling returns partial results and the next recoverable operation, not a success claim.

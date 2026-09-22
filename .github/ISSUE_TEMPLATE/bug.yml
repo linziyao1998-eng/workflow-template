@@ -1,0 +1,19 @@
+name: Bug
+description: Report reproducible unexpected behavior.
+body:
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Environment and reproduction steps
+    validations:
+      required: true
+  - type: textarea
+    id: behavior
+    attributes:
+      label: Actual and expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Logs, screenshots and regression boundaries

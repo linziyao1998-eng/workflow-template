@@ -1,0 +1,21 @@
+name: Feature or requirement
+description: Record a desired outcome and source material; incomplete reports are welcome.
+body:
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Problem and desired outcome
+    validations:
+      required: true
+  - type: textarea
+    id: sources
+    attributes:
+      label: Source material and exact versions
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance, scope and exclusions
+  - type: textarea
+    id: questions
+    attributes:
+      label: Known gaps, dependencies and open questions

@@ -1,0 +1,27 @@
+{
+  "grilling": {
+    "unchanged": true,
+    "changed_or_added": [],
+    "removed": []
+  },
+  "domain-modeling": {
+    "unchanged": true,
+    "changed_or_added": [],
+    "removed": []
+  },
+  "tdd": {
+    "unchanged": true,
+    "changed_or_added": [],
+    "removed": []
+  },
+  "code-review": {
+    "unchanged": true,
+    "changed_or_added": [],
+    "removed": []
+  },
+  "codebase-design": {
+    "unchanged": true,
+    "changed_or_added": [],
+    "removed": []
+  }
+}

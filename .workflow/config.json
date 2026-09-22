@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "host": "codex",
+  "tracker": {
+    "kind": "github",
+    "repo": "linziyao1998-eng/workflow-template",
+    "remote": "origin"
+  },
+  "rules": {
+    "readiness": "docs/agents/definition-of-ready.md",
+    "labels": "docs/agents/triage-labels.md",
+    "tracker": "docs/agents/issue-tracker.md",
+    "domain": "docs/agents/domain.md"
+  },
+  "state_dir": ".workflow-local",
+  "skills": {
+    "grilling": ".agents/skills/grilling/SKILL.md",
+    "domain-modeling": ".agents/skills/domain-modeling/SKILL.md",
+    "tdd": ".agents/skills/tdd/SKILL.md",
+    "code-review": ".agents/skills/code-review/SKILL.md",
+    "codebase-design": ".agents/skills/codebase-design/SKILL.md"
+  },
+  "checks": {
+    "ticket": "Run npm run check on each serially integrated ticket. This starter conservatively checks all source/config files and all unit tests instead of guessing an incomplete changed-file subset. For UI, interaction, route or browser behavior changes, also run npm run test:e2e on that integrated commit before marking the ticket verified.",
+    "full": "Run npm run check:all on the final reviewed commit. This runs configuration/integrity checks, TypeScript, ESLint, Prettier, unit tests, build and Chromium E2E. Any code change after review invalidates affected review evidence; repeat applicable review and gates."
+  }
+}

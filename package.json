@@ -1,0 +1,56 @@
+{
+  "name": "workflow-template",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Vue starter with Codex workflows and executable quality gates",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/linziyao1998-eng/workflow-template.git"
+  },
+  "packageManager": "npm@11.6.2",
+  "engines": {
+    "node": ">=24.11.0 <25",
+    "npm": ">=11 <12"
+  },
+  "scripts": {
+    "dev": "vite",
+    "preview": "vite preview",
+    "build": "npm run type-check && npm run build-only",
+    "build-only": "vite build",
+    "type-check": "vue-tsc --noEmit -p tsconfig.json",
+    "lint": "eslint . --max-warnings 0",
+    "lint:fix": "eslint . --fix --max-warnings 0",
+    "format": "prettier . --write",
+    "format:check": "prettier . --check",
+    "test:unit": "vitest",
+    "test:unit:run": "vitest run",
+    "test:workflow": "node --test scripts/workflow-check.test.mjs",
+    "test:e2e": "npm run build-only && playwright test",
+    "workflow:check": "node scripts/workflow-check.mjs",
+    "check": "npm run workflow:check && npm run type-check && npm run lint && npm run format:check && npm run test:unit:run && npm run test:workflow && npm run build-only",
+    "check:all": "npm run check && npm run test:e2e",
+    "fix": "npm run lint:fix && npm run format"
+  },
+  "dependencies": {
+    "vue": "3.5.40"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.62.1",
+    "@types/node": "24.13.3",
+    "@vitejs/plugin-vue": "6.0.8",
+    "@vitest/eslint-plugin": "1.6.26",
+    "@vue/eslint-config-typescript": "14.9.0",
+    "@vue/test-utils": "2.4.11",
+    "eslint": "10.8.0",
+    "eslint-config-prettier": "10.1.8",
+    "eslint-plugin-playwright": "2.11.0",
+    "eslint-plugin-vue": "10.9.2",
+    "jsdom": "29.1.1",
+    "prettier": "3.9.5",
+    "typescript": "6.0.3",
+    "vite": "8.2.0",
+    "vitest": "4.1.10",
+    "vue-tsc": "3.3.9"
+  }
+}
