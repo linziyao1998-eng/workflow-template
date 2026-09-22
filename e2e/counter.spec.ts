@@ -1,5 +1,40 @@
 import { expect, test } from '@playwright/test'
 
+test('decrease uses native keyboard activation and stays within zero to ten', async ({ page }) => {
+  await page.goto('/')
+  const count = page.getByLabel('当前计数')
+  const increment = page.getByRole('button', { name: '增加' })
+  const decrement = page.getByRole('button', { name: '减少' })
+  const reset = page.getByRole('button', { name: '重置' })
+
+  await expect(count).toHaveText('0')
+  await expect(decrement).toBeDisabled()
+  await expect(reset).toBeDisabled()
+  await expect(increment).toBeEnabled()
+  await increment.click()
+  await increment.click()
+  await increment.focus()
+  await page.keyboard.press('Tab')
+  await expect(decrement).toBeFocused()
+  await page.keyboard.press('Enter')
+  await expect(count).toHaveText('1')
+  await page.keyboard.press('Space')
+  await expect(count).toHaveText('0')
+  await expect(decrement).toBeDisabled()
+  await expect(reset).toBeDisabled()
+
+  for (let value = 1; value <= 10; value += 1) await increment.click()
+  await increment.click()
+  await expect(count).toHaveText('10')
+  await decrement.click()
+  await expect(count).toHaveText('9')
+  await reset.click()
+  await expect(count).toHaveText('0')
+  await page.reload()
+  await expect(count).toHaveText('0')
+  await expect(decrement).toBeDisabled()
+})
+
 test('counter works with keyboard and resets after reload', async ({ page }) => {
   await page.goto('/')
   await expect(page.getByRole('heading', { name: 'Workflow Template' })).toBeVisible()

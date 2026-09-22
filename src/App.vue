@@ -12,6 +12,7 @@ const count = ref(0)
       <output aria-label="当前计数" aria-live="polite">{{ count }}</output>
       <div class="actions">
         <button type="button" @click="count = Math.min(count + 1, 10)">增加</button>
+        <button type="button" :disabled="count === 0" @click="count -= 1">减少</button>
         <button type="button" :disabled="count === 0" @click="count = 0">重置</button>
       </div>
       <p class="hint">计数仅保存在当前页面，刷新后归零。</p>
