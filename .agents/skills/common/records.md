@@ -19,5 +19,6 @@ Marker format: `<!-- workflow-ticket:<plan_id>:<key> -->`. The approved draft in
 - `base_sha`, `delivery_branch`, `delivery_head`, resolved state directory, concurrency limit and active worker IDs.
 - Per-ticket issue/key, original blockers, branch/worktree, base/commit SHAs, dirty files, state (`pending`, `running`, `saved`, `awaiting-merge`, `merged-unverified`, `verified`), evidence and unresolved blockers.
 - Integration operation underway, completed validation and its SHA, independent reviews and their base/head, fixes, full gates and corresponding SHA, PR identity/head, global pause reason and resume point.
+- Task-owned ticket/fix branch and worktree identities at creation; post-PR cleanup checks, deleted local refs/worktrees and retained candidates with reasons.
 
 Only the coordinator marks verified after serial integration and checks. Worker completion or a removed blocking edge is insufficient. During recovery, inspect actual branches, worktrees, commits and tracker before selecting the next operation; code changes invalidate affected evidence. Preserve all unfinished work. Explicit human resume is required after global human-blocker wind-down.

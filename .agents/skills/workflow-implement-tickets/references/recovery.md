@@ -14,3 +14,5 @@ After explicit human resume:
 4. Confirm blocker resolution, then remove waiting-for-human, preserving primary state. Resume the first incomplete necessary operation: work, integration, independent review, full gate or PR-only retry. A PR-only retry reuses still-valid final-code evidence.
 
 Missing records require recovering/rebuilding a verifiable baseline and any necessary human confirmation. Keep old branches and partial remote results. An environment failure can be retried after environment repair; it is never equivalent to a passed test.
+
+For a confirmed correction of a Spec recording error after tickets were approved, use the same-Issue route in [common version rules](../../common/version.md). Reconcile the approved corrected carrier, affected tickets and plan identities before this recovery sequence releases any dependency or removes `waiting-for-human`; keep earlier test results attached to their original hashes.
