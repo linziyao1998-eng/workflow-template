@@ -34,4 +34,4 @@ npm run check:all
 
 规格批准、方案批准与实现授权各自记录，不能互相推断。最终由人审核和合并 PR；部署后冒烟按需人工触发，当前没有独立 smoke skill。受阻时保留主状态与证据，按规则使用 `waiting-for-human` 并在人工明确恢复后移除。
 
-详细规则见 [项目入口](../AGENTS.md)、[配置](../.workflow/config.json) 和 [验证约定](agents/verification.md)。[工作流手册](ai-frontend-workflow.md) 和 [流程设计](workflow-sharing-design.md) 说明当前流程。
+详细规则见 [项目入口](../AGENTS.md)、[配置](../.workflow/config.json) 和 [验证约定](agents/verification.md)。[工作流手册](ai-frontend-workflow.md) 说明当前流程。

@@ -38,7 +38,7 @@ npm run check:all
 
 ## 工作流文档
 
-从[接入简介](docs/workflow-onboarding.md)开始；[工作流手册](docs/ai-frontend-workflow.md)包含当前流程图、阶段职责和规则。[同步清单](docs/workflow-sync-audit.md)记录本轮冲突处理，[交付验证](docs/workflow-validation.md)说明检查范围与未执行项。[历史 POC 记录](docs/poc-validation.md)仅作为历史证据，不代表本版远程流程已通过。
+从[接入简介](docs/workflow-onboarding.md)开始；[工作流手册](docs/ai-frontend-workflow.md)包含当前流程图、阶段职责和规则。[验证约定](docs/agents/verification.md)说明质量门禁、验证边界和目标项目验收要求。
 
 ## 使用工作流
 

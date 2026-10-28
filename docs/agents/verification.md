@@ -21,4 +21,14 @@ For each serially integrated ticket, run the standard gate. This template uses a
 
 CI mirrors these commands with `npm ci`; writing its YAML does not prove a remote CI run passed. API dependencies must use confirmed contracts and fixtures when the backend is unavailable. The starter has no backend or mock API contract to invent.
 
-Current delivery evidence and target-project acceptance scenarios are recorded in [workflow validation](../workflow-validation.md). Historical POC results do not establish current remote acceptance.
+## Target-project workflow acceptance
+
+Offline checks validate infrastructure, not whether an agent follows every natural-language protocol or has working GitHub permissions. On first adoption, verify the following scenarios in the authorized target repository and record the actual objects, approved versions and results:
+
+1. Complete requirements, missing API contracts, input below the minimum intake gate, and existing external Issues follow their respective clarification and carrier routes.
+2. After full-spec approval, human-invoked planning publishes at least one ticket with full-plan approval and verified native parent/blocking relationships. Planning approval must not trigger implementation.
+3. An authorized complete ticket graph with independent and dependent tickets uses isolated workers and serial integration. Failed validation must not release dependencies.
+4. Human blockers, uncertain remote writes, specification corrections, new or changed requirements, and interrupted execution preserve approval identities and recovery evidence. Verify explicit resume authorization, readback and resumption at the first unfinished operation.
+5. Independent Standards and Spec reviews, fix reviews, gates on the final HEAD, formal PR closure references, and post-PR cleanup satisfy the ownership, integration and clean-worktree requirements.
+
+Record passes, failures, blockers and unrun scenarios separately. Successful local checks do not establish remote workflow or CI acceptance.

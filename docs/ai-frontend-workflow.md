@@ -2,7 +2,7 @@
 
 本手册描述模板当前可执行流程。目标是让团队把需求、设计和 API 转换为经人工批准的规格及票集，再由 Codex 实现、验证、审查，交付正式 PR。人负责需求决策、阶段授权及最终合并；代理负责澄清、记录和有证据的执行。三个入口均需要人工显式调用。
 
-[接入简介](workflow-onboarding.md)说明安装与迁移。[同步清单](workflow-sync-audit.md)记录本轮冲突处理。[来源说明](workflow-sharing-design.md)区分历史设计与当前协议。
+[接入简介](workflow-onboarding.md)说明安装与迁移。[验证约定](agents/verification.md)说明质量门禁及目标项目验收要求。
 
 ## 整体流程
 
