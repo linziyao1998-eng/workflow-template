@@ -41,6 +41,8 @@ Readiness is independent of framework and component-library choice. Vue, React, 
 
 ## API and data work
 
+`workflow-clarify-spec` collects, validates and completes these contracts before full-spec approval. Planning reuses the approved contracts; a material API gap returns to clarification rather than being deferred to implementation.
+
 When the issue reads or writes remote or persistent data:
 
 - [ ] Endpoints, methods, inputs, outputs, and relevant schemas are defined.

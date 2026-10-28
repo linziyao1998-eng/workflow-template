@@ -36,9 +36,9 @@ npm run check:all
 | .github/                   | CI、Issue 与 PR 模板                          |
 | .workflow-local/           | 运行时按需创建，Git 忽略，保存恢复状态        |
 
-## 工作流背景
+## 工作流文档
 
-[前端 AI 自动化工作流手册](docs/ai-frontend-workflow.md) 和 [来源项目 POC 验证记录](docs/poc-validation.md) 保留原项目的流程设计与历史状态，供理解背景。当前模板的执行规则和验证结果以本仓库的配置、规则及实际检查为准。
+从[接入简介](docs/workflow-onboarding.md)开始；[工作流手册](docs/ai-frontend-workflow.md)包含当前流程图、阶段职责和规则。[同步清单](docs/workflow-sync-audit.md)记录本轮冲突处理，[交付验证](docs/workflow-validation.md)说明检查范围与未执行项。[历史 POC 记录](docs/poc-validation.md)仅作为历史证据，不代表本版远程流程已通过。
 
 ## 使用工作流
 

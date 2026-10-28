@@ -1,7 +1,7 @@
 import { createHash } from 'node:crypto'
-import { existsSync, readFileSync, realpathSync, readdirSync } from 'node:fs'
+import { existsSync, readFileSync, realpathSync, readdirSync, lstatSync } from 'node:fs'
 import { execFileSync } from 'node:child_process'
-import { isAbsolute, relative, resolve } from 'node:path'
+import { dirname, isAbsolute, relative, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const own = ['workflow-clarify-spec', 'workflow-plan-tickets', 'workflow-implement-tickets']
@@ -108,6 +108,40 @@ export function validateProject(directory, environment = {}) {
     const expectedNames = [...lock.upstream.skills.map((s) => s.name), ...lock.owned.skills].sort()
     if (JSON.stringify(actualNames) !== JSON.stringify(expectedNames))
       errors.push('Installed skill inventory differs from locked inventory')
+    const installedFiles = []
+    const collect = (directory) => {
+      for (const name of readdirSync(resolve(root, directory))) {
+        const path = directory + '/' + name
+        const stat = lstatSync(resolve(root, path))
+        if (stat.isSymbolicLink()) {
+          errors.push('Symlink in installed skills: ' + path)
+          continue
+        }
+        if (stat.isDirectory()) collect(path)
+        else installedFiles.push(path)
+      }
+    }
+    collect('.agents/skills')
+    if (JSON.stringify(installedFiles.sort()) !== JSON.stringify(Object.keys(lock.files).sort()))
+      errors.push('Installed file inventory differs from locked inventory')
+    for (const path of installedFiles) {
+      if (
+        !path.endsWith('.md') ||
+        ![...own, 'common'].some((name) => path.startsWith('.agents/skills/' + name + '/'))
+      )
+        continue
+      const markdown = readFileSync(resolve(root, path), 'utf8').replace(/```[\s\S]*?```/g, '')
+      for (const match of markdown.matchAll(/\[[^\]]*\]\(([^)\s]+)\)/g)) {
+        const target = match[1]
+        if (/^(?:[a-z][a-z0-9+.-]*:|#)/i.test(target)) continue
+        const destination = relative(
+          root,
+          resolve(dirname(resolve(root, path)), target.split('#')[0]),
+        )
+        if (isAbsolute(target) || !safeFile(destination))
+          errors.push('Broken or unsafe local reference: ' + path + ' -> ' + target)
+      }
+    }
     for (const [path, hash] of Object.entries(lock.files)) {
       if (!safeFile(path)) {
         errors.push('Missing or unsafe locked file: ' + path)
