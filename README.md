@@ -36,6 +36,10 @@ npm run check:all
 | .github/                   | CI、Issue 与 PR 模板                          |
 | .workflow-local/           | 运行时按需创建，Git 忽略，保存恢复状态        |
 
+## 工作流背景
+
+[前端 AI 自动化工作流手册](docs/ai-frontend-workflow.md) 和 [来源项目 POC 验证记录](docs/poc-validation.md) 保留原项目的流程设计与历史状态，供理解背景。当前模板的执行规则和验证结果以本仓库的配置、规则及实际检查为准。
+
 ## 使用工作流
 
 从本项目根目录启动 Codex，下一轮发现项目内 skills 后，可分别显式调用：
